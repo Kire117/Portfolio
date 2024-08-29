@@ -1,0 +1,155 @@
+Hoy vas a crear tu propio asistente virtual de voz.
+
+Un programa al que le podrás hablar, si hablar y no escribir y al que le podrás pedir que te asista
+
+en muchas tareas.
+
+Vas a poder conversar con tu asistente y prepararlo para que sea capaz de hacer lo que tú quieras.
+
+Y lo genial es que no solo podrás hacer que sea capaz de desarrollar las tareas que veremos en el día
+
+de hoy, sino que luego puedes seguir añadiendo tantas funcionalidades como tu imaginación sea capaz
+
+de desarrollar.
+
+Y para aprender a hacer esto, vamos a conocer algunas bibliotecas nuevas como Paint SX tres, que es
+
+un módulo que le permite a Python poder hablar con nosotros.
+
+Speak Recreation, que es la biblioteca que permite traducir el sonido de la voz humana y pasarlo a
+
+texto web browser para poder manipular un navegador web vía kit para conectar a tu código con muchos
+
+sitios web como YouTube, Wikipedia y más Yahoo Finance para poder buscar información en el mercado
+
+de la bolsa hay Jobs que es una base de datos, de chistes para que tu asistente no sea nada aburrido
+
+y Wikipedia para, ya sabes, buscar este proyecto te va a llevar un paso más arriba.
+
+Vamos a escalarlo ahora mismo.
+
+Nota sobre la Próxima Lección
+En la próxima lección vamos a instalar e importar varias bibliotecas nuevas. Algunas personas han manifestado algunos problemas con una de ellas en particular (ya sea al momento de instalarla, o al implementarla en la lección que le sigue)
+
+Te invito a que continues con la próxima lección. Si sale bien, sigue adelante. Pero si se te presenta algún error que no sabes cómo resolver, regresa a este artículo, donde te voy a compartir las posibles soluciones. ¡Mucha suerte!
+
+
+
+Problemas con Flask
+Si al ejecutar el código de la lección "Transformar Voz en Texto" recibes el siguiente mensaje de error:
+
+ModuleNotFoundError: No module named 'flask'
+
+Esto simplemente se soluciona instalando la biblioteca Flask con el siguiente comando:
+
+pip install flask
+
+
+
+Problemas con PyAudio
+Aunque no vamos a instalar manualmente la biblioteca PyAudio, sí vamos a instalar otra biblioteca (SpeechRecognition) que al ejecutarse se encarga de instalar PyAudio sin que lo veamos en pantalla.
+
+Curiosamente PyAudio no siempre se instala como corresponde y esto le está trayendo dolores de cabeza a más de un estudiante.
+
+Si al ejecutar el código de la lección "Transformar Voz en Texto" recibes el siguiente mensaje de error:
+
+AttributeError("Could not find PyAudio; chack installation")
+
+en ese caso, la forma de resolverlo es instalar PyAudio manualmente, pero esto no siempre resulta como debería, por lo que a continuación voy a compartir contigo las diferentes soluciones que están dando resultado.
+
+Intenta con cada una de ellas en orden hasta que alguna te de resultado.
+
+
+
+Solución 1
+
+Abre CMD en Windows (o la terminal en Mac) y escribe lo siguiente:
+
+pip install PyAudio
+
+
+
+Solución 2
+
+1 - En PyCharm ve a File / Settings / Project: Python / Python Interpreter
+
+2 - Click en +
+
+3 - En la barra de búsquedas escribe "PyAudio"
+
+4 - Selecciona el resultado correcto y haz click en Install Package
+
+
+
+Solución 3
+
+Abre CMD en Windows (o la terminal en Mac) y escribe lo siguiente:
+
+pip install pipwin
+
+pipwin install PyAudio
+
+
+
+Solución 4
+
+1 - En PyCharm ve a View / Tool Windows / Terminal
+
+2 - Escribe lo siguiente:
+
+pip install pipwin
+
+pipwin install PyAudio
+
+
+
+Solución 5
+
+Esta es la solución menos "limpia", pero llegados a este punto, habrá que ensuciarse las manos.
+
+1 - Asegúrate de conocer la versión de python que tienes instalada. Puedes verificarlo escribiendo lo siguiente en la terminal:
+
+python --version
+
+Obtendrás, por ejemplo:
+
+Python 3.10.0
+
+2 - Comprueba qué versión de Python tienes instalada (32 o 64 bits). La manera más sencilla es escribir en la terminal lo siguiente:
+
+python
+
+De esta manera obtendrás, entre otra información, algo parecido a lo siguiente, que se muestra en mi caso
+
+MSC v.1927 64 bit (AMD64)] on win32.
+
+Lo importante es lo resaltado entre paréntesis. Toma nota de lo que obtienes al hacerlo tú.
+
+3 - De acuerdo con lo anterior, en mi ordenador tendría que instalar una versión de PyAudio para Python 3.10 (310) de 64 bits (win_amd64). Nuevamente, puede no ser la misma versión que necesites tú.
+
+4 - Ingresa en este enlace, y dirígete al encabezado que dice PyAudio: bindings for the PortAudio library.
+
+5 - Ahí encontrarás listados varios archivos que se usan para reemplazar la versión de PyAudio que ofrece PyPi. Debes elegir la que corresponde a tu ordenador y a tu versión de Python (según los datos que te enseñé a rocoger en los puntos 1 y 2 de esta solución).
+
+En mi caso tendría que descargar la siguiente versión:
+
+PyAudio‑0.2.11‑cp310‑cp310‑win_amd64.whl
+
+Descarga la que necesites tú de acuerdo a lo verificado en los puntos 1 y 2.
+
+6. Localiza la carpeta de descargas en donde se haya bajado el archivo. Por ejemplo en mi caso:
+
+C:\Users\Win10\Downloads
+
+7. Abre la terminal y escribe:
+
+cd C:\Users\Usuario\Downloads
+
+8. A continuación escribe en la terminal lo siguiente:
+
+pip install PyAudio-0.2.11-cp39-cp39-win_amd64.whl
+
+(deberás reemplazar el nombre del archivo descargado por el que hayas bajado tú).
+
+9. Esto habrá instalado PyAudio y solucionará tu problema.
+

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Sign In</title>
+</head>
+<body>
+    {% extends 'base/index.html' %}
+    {% block content %}
+    <div class="superior-bar">
+         <h1>Sign in</h1>
+    </div>
+   <div class="card-body">
+       <form method="post">
+        {% csrf_token %}
+           <label>{{form.username.label}}</label>
+            {{form.username}}
+           <label>{{form.password1.label}}</label>
+            {{form.password1}}
+           <label>{{form.password2.label}}</label>
+            {{form.password2}}
+        <input style="margin-top:10px;" class="button" type="submit" value="Sign In">
+    </form>
+    <p>Already have an account? <a href="{% url 'login'%}">Log In</a></p>
+   </div>
+    {% endblock content%}
+</body>
+</html>

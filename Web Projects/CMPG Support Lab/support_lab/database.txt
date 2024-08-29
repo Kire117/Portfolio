@@ -1,0 +1,58 @@
+-- Crear la base de datos
+CREATE DATABASE CMPG_Support_Lab;
+
+-- Usar la base de datos creada
+USE CMPG_Support_Lab;
+
+-- Crear la tabla de asistentes
+CREATE TABLE assistants (
+    assistant_id INT(9) NOT NULL,
+    name VARCHAR(255) NOT NULL,
+    password VARCHAR(255) NOT NULL,
+    role VARCHAR(20) DEFAULT 'assistant',
+    PRIMARY KEY (assistant_id)
+);
+
+-- Crear la tabla de estudiantes
+CREATE TABLE students (
+    student_id INT(9) NOT NULL,
+    student_name VARCHAR(255) NOT NULL,
+    assistant_id INT(9) NOT NULL,
+    initial_level  INT NOT NULL,
+    current_level INT NOT NULL,
+    initial_comment VARCHAR(255),
+    creation_date DATE NOT NULL,
+    progress INT NOT NULL,
+    strikes INT NOT NULL,
+    FOREIGN KEY (assistant_id) REFERENCES assistants(assistant_id),
+    PRIMARY KEY (student_id)
+);
+
+-- Crear la tabla de registros de asistencia al laboratorio
+CREATE TABLE lab_attendance_records (
+    record_id INT AUTO_INCREMENT NOT NULL,
+    student_id INT(9) NOT NULL,
+    date DATE NOT NULL,
+    comment VARCHAR(255),
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    PRIMARY KEY (record_id)
+);
+
+-- Crear la tabla de Workshops
+CREATE TABLE workshops (
+    workshop_id INT AUTO_INCREMENT NOT NULL,
+    workshop_title VARCHAR(255) NOT NULL,
+    date DATE NOT NULL,
+    description VARCHAR(255),
+    PRIMARY KEY (workshop_id)
+);
+
+-- Crear la tabla de asistencia a workshops
+CREATE TABLE workshop_attendance (
+    workshop_id INT NOT NULL,
+    student_id INT(9) NOT NULL,
+    FOREIGN KEY (workshop_id) REFERENCES workshops(workshop_id),
+    FOREIGN KEY (student_id) REFERENCES students(student_id),
+    PRIMARY KEY (workshop_id, student_id),
+    UNIQUE (workshop_id, student_id)
+);

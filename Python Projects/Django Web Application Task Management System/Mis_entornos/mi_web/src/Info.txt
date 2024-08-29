@@ -1,0 +1,14 @@
+Server url:
+http://127.0.0.1:8000/
+
+to run the server use the followin command
+(venv) PS C:\Users\Aleja\PycharmProjects\Code_Learning\Python_Total\Mis_entornos\mi_web\src\proyecto> python manage.py runserver
+NOTE: see that i have to move through all the dirs to make sure its running
+
+If i dont remember the Super User use the following command in the terminal within the project
+python manage.py createsuperuser
+
+
+Normal user info:
+Username: Juana
+password: juanalacubana

@@ -1,0 +1,1156 @@
+:root {
+  /* Colores */
+  --color-background-navbar: #d6dadf;
+  --color-primary: #c62026;
+  --color-primary-second: #004b87;
+  --color-black: #000;
+  --color-white: #fff;
+  --color-primary-darken: #230f10;
+  /* Oscurecido para hover en botón */
+  --color-primary-lighten: #d62228;
+
+  /* Fuentes */
+  --font-size-small: 13px;
+  --font-size-normal: 14px;
+  --font-size-large: 62px;
+
+  /* Espaciados */
+  --padding-small: 12px 34px;
+  --margin-normal: 10px 0 40px;
+
+  /* Transiciones */
+  --transition-fast: 0.5s;
+  --transition-slow: 1s;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  font-family: "Montserrat", sans-serif;
+}
+
+html {
+  height: 100%;
+}
+
+html,
+body {
+  overflow-x: hidden;
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+/*-----------HEADER-----------*/
+.header {
+  width: 100%;
+  position: relative;
+  background: none;
+  /* Eliminamos el fondo del header */
+}
+
+nav {
+  display: flex;
+  padding: 2% 6%;
+  justify-content: space-between;
+  align-items: center;
+  background: var(--color-background-navbar);
+}
+
+nav img {
+  width: 150px;
+}
+
+.nav-links {
+  flex: 1;
+  text-align: right;
+}
+
+nav .fa-solid {
+  display: none;
+  color: var(--color-white);
+  margin: 10px;
+  font-size: 22px;
+  cursor: pointer;
+}
+
+.nav-links ul li {
+  list-style: none;
+  display: inline-block;
+  padding: 8px 12px;
+  position: relative;
+}
+
+.nav-links ul li a {
+  color: var(--color-black);
+  text-decoration: none;
+  font-size: var(--font-size-small);
+}
+
+.nav-links ul li::after {
+  content: "";
+  width: 0%;
+  height: 2px;
+  background: var(--color-primary);
+  display: block;
+  margin: auto;
+  transition: var(--transition-fast);
+}
+
+.nav-links ul li:hover::after {
+  width: 100%;
+}
+
+@media (max-width: 700px) {
+  .nav-links {
+    position: absolute;
+    background: var(--color-primary);
+    /* Asegura que el fondo del menú desplegable sea consistente */
+    height: 100vh;
+    width: 200px;
+    top: 0;
+    right: -200px;
+    text-align: left;
+    z-index: 2;
+    transition: var(--transition-slow);
+  }
+
+  nav .fa-solid {
+    display: block;
+    color: var(--color-white);
+    margin: 10px;
+    font-size: 22px;
+    cursor: pointer;
+  }
+
+  .nav-links ul {
+    padding: 30px;
+  }
+
+  /* Escondemos la imagen y ajustamos el header solo para el NavBar */
+  .header {
+    min-height: auto;
+    /* Ajusta esto según la altura de tu NavBar */
+    background: none;
+  }
+}
+
+/*-----------STUDENT INFO-----------*/
+
+.content-wrapper-students-info {
+  flex: 1;
+}
+
+.student-search-form {
+  max-width: 500px;
+  margin: 0 auto;
+  margin-right: var(--margin-normal);
+  padding: var(--padding-small);
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.student-search-form input[type="text"] {
+  flex-grow: 1;
+  padding: 10px;
+  margin-right: 10px;
+  border: 2px solid var(--color-primary);
+  border-radius: 5px;
+  transition: border-color var(--transition-fast);
+}
+
+.student-search-form button {
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.student-search-form button:hover {
+  background-color: var(--color-primary-darken);
+}
+
+.student-search-form input[type="text"]:focus {
+  border-color: var(--color-primary-lighten);
+}
+
+#studentInfoDisplay {
+  background-color: var(--color-white);
+  color: #333;
+  max-width: 800px;
+  margin: 2rem auto;
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#studentInfoDisplay table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: var(--margin-normal);
+}
+
+#studentInfoDisplay th,
+#studentInfoDisplay td {
+  padding: 10px;
+  border: 1px solid #ddd;
+  text-align: left;
+}
+
+#studentInfoDisplay th {
+  background-color: var(--color-background-navbar);
+  color: var(--color-black);
+}
+
+#studentInfoDisplay tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#studentInfoDisplay tr:hover {
+  background-color: #ddd;
+}
+
+#studentInfoDisplay h2 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+#studentInfoDisplay h3 {
+  color: var(--color-primary);
+  font-size: 1.5rem;
+  font-weight: 600;
+  margin-top: 2rem;
+}
+
+#studentInfoDisplay p {
+  font-size: 1rem;
+  margin-bottom: 0.5rem;
+}
+
+#studentInfoDisplay .section {
+  border-top: 1px solid #eee;
+  padding-top: 1rem;
+}
+
+#studentInfoDisplay:hover {
+  box-shadow: 0 6px 8px rgba(0, 0, 0, 0.15);
+}
+
+.copyEmail {
+  cursor: pointer;
+  transition: color 0.3s ease;
+}
+
+#newAttendanceRecord {
+  width: 90%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--padding-small);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  border: 1px solid #ddd;
+  border-radius: 10px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+  background-color: var(--color-white);
+}
+
+#newAttendanceRecord h3 {
+  color: var(--color-primary);
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+#newAttendanceRecord textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid var(--color-primary);
+  border-radius: 5px;
+}
+
+#newAttendanceRecord button {
+  width: auto;
+  padding: 10px 20px;
+  margin: 0 auto;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+#newAttendanceRecord button:hover {
+  background-color: var(--color-primary-darken);
+}
+
+#workshopList {
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--padding-small);
+  background-color: var(--color-white);
+  border-radius: 10px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+#workshopTitleContainer h2 {
+  color: var(--color-primary);
+  margin-bottom: 1rem;
+  font-size: 2rem;
+  font-weight: 700;
+}
+
+#workshopAttendanceForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+#workshopAttendanceForm button {
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+#workshopAttendanceForm button:hover {
+  background-color: var(--color-primary-darken);
+}
+
+@media (max-width: 600px) {
+
+  .student-search-form input[type="text"],
+  .student-search-form button {
+    flex: 1;
+    margin-right: 0;
+  }
+
+  .student-search-form button {
+    margin-bottom: 0;
+  }
+
+  #studentInfoDisplay {
+    width: 92%;
+    margin-top: 0%;
+    padding-left: 1rem;
+    padding-top: 2px;
+  }
+
+  #emailDetailCopy {
+    font-size: 0.8rem;
+  }
+
+  #workshopList,
+  #newAttendanceRecord {
+    margin: 1rem auto;
+    padding: 15px;
+  }
+
+  #workshopAttendanceForm button {
+    width: 90%;
+    margin-top: 10px;
+  }
+
+  #newAttendanceRecord {
+    width: 90%;
+    margin: 1rem auto;
+    padding: 15px;
+  }
+
+  #newAttendanceRecord textarea {
+    width: 94%;
+  }
+
+  #newAttendanceRecord button {
+    width: 100%;
+    margin-top: 10px;
+  }
+
+}
+
+/*-----------ASSISTANTS-----------*/
+
+.content-wrapper-assitants {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-small);
+  margin-top: var(--margin-normal);
+}
+
+#assistantsTable,
+#assistantsTable thead,
+#assistantsTable tbody,
+#assistantsTable th,
+#assistantsTable td,
+#assistantsTable tr {
+  display: block;
+  width: 100%;
+}
+
+#assistantsTable thead tr {
+  position: absolute;
+  top: -9999px;
+  left: -9999px;
+}
+
+#assistantsTable tr {
+  margin-bottom: 10px;
+  border: 1px solid #ddd;
+}
+
+#assistantsTable td {
+  border: none;
+  position: relative;
+  padding-left: 50%;
+  text-align: right;
+  box-sizing: border-box;
+  display: block;
+  text-align: left;
+  padding: 12px 20px;
+}
+
+#assistantsTable button {
+  width: auto;
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+#assistantsTable button:hover {
+  background-color: var(--color-primary-darken);
+}
+
+#addAssistantForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: var(--padding-small);
+  background-color: var(--color-white);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+#addAssistantForm input[type="number"]::-webkit-inner-spin-button,
+#addAssistantForm input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#addAssistantForm h2 {
+  color: var(--color-primary);
+  text-align: center;
+  /* Centra el texto del título */
+  margin: var(--margin-normal) 0;
+}
+
+#addAssistantForm input[type="number"],
+#addAssistantForm input[type="text"],
+#addAssistantForm input[type="password"] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid var(--color-primary);
+  border-radius: 5px;
+  transition: border-color var(--transition-fast);
+}
+
+#addAssistantForm button[type="submit"] {
+  width: 30%;
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  margin-bottom: 5%;
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+#addAssistantForm button[type="submit"]:hover {
+  background-color: var(--color-primary-darken);
+}
+
+@media (max-width: 600px) {
+  #assistantsTable button {
+    width: 100%;
+    margin-bottom: 5px;
+  }
+
+  #addAssistantForm button[type="submit"] {
+    width: auto;
+    margin-left: auto;
+  }
+
+  #addAssistantForm input[type="number"],
+  #addAssistantForm input[type="text"],
+  #addAssistantForm input[type="password"] {
+    width: 95%;
+  }
+
+  #assistantsTable {
+    max-width: 100%;
+  }
+}
+
+/*-----------STUDENTS-----------*/
+.content-wrapper-students {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: flex-start;
+  padding: var(--padding-small);
+  margin-top: var(--margin-normal);
+}
+
+#students-table {
+  width: 90%;
+  margin-top: 20px;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 8px;
+}
+
+#students-table th,
+#students-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+  color: var(--color-black);
+}
+
+#students-table th {
+  background-color: var(--color-primary-second);
+  color: var(--color-white);
+}
+
+#students-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#students-table tbody tr:hover {
+  background-color: var(--color-background-navbar);
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+#students-table button {
+  width: auto;
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+#students-table button:hover {
+  background-color: var(--color-primary-darken);
+}
+
+.filter-container {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.filter-container label {
+  margin-right: 10px;
+  white-space: nowrap;
+  color: var(--color-primary-darken);
+}
+
+
+#studentIdFilter,
+#assistantFilter {
+  padding: 10px;
+  border: 2px solid var(--color-primary);
+  border-radius: 5px;
+  background-color: var(--color-white);
+  cursor: pointer;
+}
+
+#studentIdFilter:focus,
+#assistantFilter:focus {
+  border-color: var(--color-primary-darken);
+  outline: none;
+}
+
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 1000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.modal-content {
+  background-color: var(--color-white);
+  margin: 10% auto;
+  padding: var(--padding-small);
+  border: 1px solid var(--color-primary-second);
+  border-radius: 8px;
+  width: 50%;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.modal-content .close-button {
+  color: var(--color-primary-darken);
+  float: right;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.modal-content .close-button:hover {
+  color: var(--color-primary);
+}
+
+.modal-content .form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.modal-content .cancel-button,
+.modal-content .update-button {
+  padding: 10px 15px;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.modal-content .cancel-button {
+  background-color: var(--color-black);
+  color: var(--color-white);
+}
+
+.modal-content .cancel-button:hover {
+  background-color: var(--color-primary-darken);
+}
+
+.modal-content .update-button {
+  background-color: var(--color-primary);
+  color: var(--color-white);
+}
+
+.modal-content .update-button:hover {
+  background-color: var(--color-primary-darken);
+}
+
+.modal-content input[type="text"],
+.modal-content input[type="number"],
+.modal-content input[type="date"],
+.modal-content select,
+.modal-content textarea {
+  width: calc(100% - 20px);
+  padding: 10px;
+  margin-bottom: var(--margin-normal);
+  border: 1px solid var(--color-primary-second);
+  border-radius: 5px;
+  box-sizing: border-box;
+}
+
+.modal-content input[type="text"]:disabled,
+.modal-content input[type="number"]:disabled,
+.modal-content input[type="date"]:disabled {
+  background-color: #e9ecef;
+}
+
+.modal-content input[type="text"]:focus,
+.modal-content input[type="number"]:focus,
+.modal-content input[type="date"]:focus,
+.modal-content select:focus,
+.modal-content textarea:focus {
+  border-color: var(--color-primary-darken);
+  outline: none;
+}
+
+
+@media (max-width: 600px) {
+  .filter-container {
+    flex-direction: column;
+    align-items: flex-start;
+    width: 100%;
+  }
+
+  .filter-container label,
+  #assistantFilter {
+    width: 100%;
+    margin-bottom: 10px;
+    /* Asegúrate de dar espacio entre los elementos del formulario */
+  }
+
+  #students-table,
+  #students-table thead,
+  #students-table tbody,
+  #students-table th,
+  #students-table td,
+  #students-table tr {
+    display: block;
+    width: 100%;
+  }
+
+  #students-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  #students-table tr {
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+  }
+
+  #students-table td {
+    border: none;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+    box-sizing: border-box;
+    display: block;
+    text-align: left;
+    padding: 12px 20px;
+  }
+
+  #students-table td:nth-of-type(1):before {
+    content: "Email: ";
+  }
+
+  #students-table td:nth-of-type(2):before {
+    content: "Name: ";
+  }
+
+  #students-table td:nth-of-type(3):before {
+    content: "Level: ";
+  }
+
+  #students-table td:nth-of-type(4):before {
+    content: "Fist visit: ";
+  }
+
+  #students-table td:before {
+    font-weight: bold;
+    text-align: left;
+    color: var(--color-primary-second);
+  }
+
+  #students-table th {
+    display: none;
+    /* Ocultar los encabezados en vista móvil */
+  }
+}
+
+/*-----------ADD STUDENTS-----------*/
+
+.content-wrapper-add-students {
+  flex: 1;
+}
+
+#addStudentForm {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  max-width: 500px;
+  margin: 0 auto;
+  padding: var(--padding-small);
+  background-color: var(--color-white);
+  border-radius: 8px;
+  box-shadow: var(--shadow-soft);
+}
+
+#addStudentForm select {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid var(--color-primary);
+  border-radius: 5px;
+  background-color: var(--color-white);
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  cursor: pointer;
+  transition: border-color var(--transition-fast);
+}
+
+#addStudentForm textarea {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid var(--color-primary);
+  border-radius: 5px;
+  transition: border-color var(--transition-fast);
+  resize: vertical;
+  overflow: auto;
+}
+
+#addStudentForm textarea:focus {
+  border-color: var(--color-primary-darken);
+  outline: none;
+}
+
+#addStudentForm select:focus {
+  border-color: var(--color-primary-darken);
+  outline: none;
+}
+
+
+#addStudentForm input[type="number"]::-webkit-inner-spin-button,
+#addStudentForm input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+#addStudentForm h2 {
+  color: var(--color-primary);
+  text-align: center;
+  margin: var(--margin-normal) 0;
+}
+
+#addStudentForm input[type="number"],
+#addStudentForm input[type="text"] {
+  width: 90%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid var(--color-primary);
+  border-radius: 5px;
+  transition: border-color var(--transition-fast);
+}
+
+#addStudentForm button[type="submit"] {
+  width: 30%;
+  padding: 10px 20px;
+  background-color: var(--color-primary);
+  margin-bottom: 5%;
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+#addStudentForm button[type="submit"]:hover {
+  background-color: var(--color-primary-darken);
+}
+
+@media (max-width: 600px) {
+  #addStudentForm textarea {
+    width: 95%;
+  }
+
+  #addStudentForm select {
+    width: 100%;
+  }
+
+  #addStudentForm button[type="submit"] {
+    width: auto;
+    margin-left: auto;
+  }
+
+  #addStudentForm input[type="number"],
+  #addStudentForm input[type="text"] {
+    width: 95%;
+  }
+}
+
+/*-----------WORKSHOPS-----------*/
+.content-wrapper-workshops {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: var(--padding-small);
+  width: 100%;
+}
+
+.add-workshop-form {
+  width: 100%;
+  max-width: 800px;
+  margin: 0 auto;
+  padding: var(--padding-small);
+  background-color: var(--color-white);
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.add-workshop-form h2 {
+  color: var(--color-primary);
+  text-align: center;
+}
+
+.add-workshop-form label {
+  color: var(--color-black);
+  font-size: var(--font-size-small);
+}
+
+.add-workshop-form input,
+.add-workshop-form textarea {
+  width: 100%;
+  padding: 10px;
+  margin-bottom: 10px;
+  border: 2px solid var(--color-primary-second);
+  border-radius: 5px;
+}
+
+.add-workshop-form button {
+  padding: 10px;
+  width: 100%;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+.add-workshop-form button:hover {
+  background-color: var(--color-primary-darken);
+}
+
+#workshops-table {
+  width: 100%;
+  max-width: 800px;
+  margin: 20px auto;
+  border-collapse: collapse;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+#workshops-table th,
+#workshops-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid #ddd;
+  text-align: left;
+}
+
+#workshops-table th {
+  background-color: var(--color-primary-second);
+  color: var(--color-white);
+}
+
+#workshops-table tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+#workshops-table tbody tr:hover {
+  background-color: var(--color-background-navbar);
+  transition: background-color var(--transition-fast);
+}
+
+#workshops-table .btn-delete {
+  padding: 8px;
+  background-color: var(--color-primary-second);
+  color: var(--color-white);
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+}
+
+#workshops-table .btn-delete:hover {
+  background-color: var(--color-primary-lighten);
+}
+
+
+@media (max-width: 900px) {
+
+  .content-wrapper-workshops {
+    width: 90%;
+    padding-top: 1%;
+    padding-left: 5%;
+  }
+
+  .add-workshop-form {
+    width: 80%;
+  }
+
+  #workshops-table {
+    width: 95%;
+  }
+
+  #workshops-table,
+  #workshops-table thead,
+  #workshops-table tbody,
+  #workshops-table th,
+  #workshops-table td,
+  #workshops-table tr {
+    display: block;
+  }
+
+  #workshops-table thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+
+  #workshops-table tr {
+    border: 1px solid #ccc;
+  }
+
+  #workshops-table td {
+    border: none;
+    border-bottom: 1px solid #eee;
+    position: relative;
+    padding-left: 50%;
+    text-align: right;
+    padding-right: 10px;
+  }
+
+  #workshops-table td:before {
+    position: absolute;
+    top: 12px;
+    left: 6px;
+    width: 45%;
+    padding-right: 10px;
+    white-space: nowrap;
+    text-align: left;
+    font-weight: bold;
+  }
+
+  #workshops-table td:nth-of-type(1):before {
+    content: "Title";
+  }
+
+  #workshops-table td:nth-of-type(2):before {
+    content: "Date";
+  }
+
+  #workshops-table td:nth-of-type(3):before {
+    content: "Description";
+  }
+
+}
+
+/*-----------REPORTS-----------*/
+
+.content-wrapper-reports {
+  flex: 1;
+}
+
+.student-report {
+  background-color: var(--color-white);
+  padding: 2rem;
+  border-radius: 10px;
+  box-shadow: 0 4px 6px var(--color-black);
+  text-align: center;
+  width: 100%;
+  max-width: 600px;
+  margin: 0 auto;
+  transition: box-shadow var(--transition-fast);
+}
+
+.student-report:hover {
+  box-shadow: 0 12px 18px var(--color-primary-second);
+}
+
+.report-button {
+  padding: 12px 34px;
+  background-color: var(--color-primary);
+  color: var(--color-white);
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color var(--transition-fast);
+  font-size: var(--font-size-normal);
+}
+
+.report-button:hover {
+  background-color: var(--color-primary-darken);
+}
+
+.student-report,
+.workshop-report h1,
+.workshop-report h2 {
+  color: var(--color-black);
+  margin-bottom: 1rem;
+}
+
+#workshopSelector {
+  padding: 0.5rem;
+  margin-bottom: 1rem;
+  border-radius: 5px;
+  width: auto;
+  max-width: 300px;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+
+@media (max-width: 600px) {
+
+  .student-report,
+  .workshop-report {
+    width: 85%;
+    padding: var(--padding-small);
+    margin-top: var(--margin-normal);
+  }
+
+  .student-report h1,
+  .workshop-report h2 {
+    font-size: 1.5rem;
+  }
+
+  .student-report .report-button,
+  .workshop-report .report-button {
+    font-size: var(--font-size-small);
+    padding: 10px 28px;
+  }
+}
+
+/*-----------FOOTER-----------*/
+
+.footer {
+  width: 100%;
+  text-align: center;
+  padding: 30px 0;
+  flex-shrink: 0;
+}
+
+.footer h4 {
+  margin-bottom: 25px;
+  margin-top: 20px;
+  font-weight: 600;
+}
+
+.icons .fa-brands {
+  color: var(--color-primary);
+  margin: 0 13px;
+  cursor: pointer;
+  padding: 18px 0;
+}
+
+.fa-heart {
+  color: var(--color-primary);
+}
